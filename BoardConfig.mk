@@ -173,5 +173,36 @@ TARGET_FORCE_CPU_UPLOAD := true
 # Hardware
 BOARD_HARDWARE_CLASS := device/htc/a5/cmhw
 
+#TWRP
+DEVICE_RESOLUTION := 720x1280
+RECOVERY_SDCARD_ON_DATA := true
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+TW_NO_USB_STORAGE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TW_INCLUDE_JB_CRYPTO := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_HTC_LED := true
+TW_NO_SCREEN_BLANK := true
+
+# Vold
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# MultiROM config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/htc/a5/mr_init_devices.c
+MR_DPI := hdpi
+MR_DPI_FONT := 216
+MR_FSTAB := device/htc/a5/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x03200000
+MR_KEXEC_DTB := true
+MR_CONTINUOUS_FB_UPDATE := true
+MR_USE_QCOM_OVERLAY := true
+MR_QCOM_OVERLAY_HEADER := device/htc/a5/framebuffer_qcom_overlay.h
+MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
+
 # inherit from the proprietary version
 -include vendor/htc/a5/BoardConfigVendor.mk
